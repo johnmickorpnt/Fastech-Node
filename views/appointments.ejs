@@ -1,0 +1,68 @@
+<%- include('components/head', {title: "Set an appointment"}) -%>
+    <br><br><br><br>
+    <div class="d-md-flex">
+        <div class="one-half align-self-center">
+            &nbsp &nbsp &nbsp &nbsp &nbsp <img src="/images/2.png" width="700" height="700">
+        </div>
+        <div class="one-forth ml-md-5 align-self-center">
+            <br>
+            <div class="text mt-5">
+                <span class="subheading1">WE ARE MORE THAN GLAD TO HELP YOU</span>
+                <h1 class="mb-3" style="font-size: 30px;"><b><span>Set An Appointment</span></b></h1>
+                <form action="/submit-appointment" name="form2" method="POST">
+                    <div class="form-group">
+                        <input type="text" id="name" class="form-control" placeholder="Full Name" name="name" style="font-size: 16px;" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="phone" class="form-control" placeholder=" Phone" onkeypress="validate(event)" pattern=".{10,}" title="Valid phone number format: XXX-XXX-XXXX" name="phone" style="font-size: 16px;" required>
+                    </div>
+                    <script>
+                        function validate(evt) {
+                            var theEvent = evt || window.event;
+                            if (theEvent.type === 'paste') {
+                                key = event.clipboardData.getData('text/plain');
+                            } else {
+                                var key = theEvent.keyCode || theEvent.which;
+                                key = String.fromCharCode(key);
+                            }
+                            var regex = /[0-9]|\./;
+                            if (!regex.test(key)) {
+                                theEvent.returnValue = false;
+                                if (theEvent.preventDefault) theEvent.preventDefault();
+                            }
+                        }
+                    </script>
+                    <div class="form-group">
+                        <input type="text" id="email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Kindly follow the format (example@email.com)" placeholder=" Email" name="email" style="font-size: 16px;">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="address" class="form-control" placeholder=" Home Address" name="address" style="font-size: 16px;" required>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control" id="service" name="service" style="font-size: 16px;" required>
+                            <option value="null">What service would you like to avail?</option>
+                            <option value="Troubleshooting & Networking Installation">Troubleshooting & Networking Installation</option>
+                            <option value="Hardware & Software Repair and Installation">Hardware & Software Repair and Installation</option>
+                            <option value="Virus and Malware Removal">Virus and Malware Removal </option>
+                            <option value="Data Recovery & Backup Services">Data Recovery & Backup Services</option>
+                            <option value="Maintenance Services, Systems Setup and Configuration">Maintenance Services, Systems Setup and Configuration</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="date" id="date" placeholder=" Date of Appointment" name="date" style="padding: 10px; padding-right: 341px;" required>
+                    </div>
+                    <div class="form-group">
+                        <input id="time" type="time" placeholder=" Time of Appointment" name="time" style="border: 1px solid #e6e6e6; padding: 10px; padding-right: 341px;" required><br>
+                        <span>Office hours are available at 8:00 AM to 5:00 PM only</span>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" cols="30" rows="7" class="form-control" placeholder=" Elaborate your Technical Issue/ Concern" name="message" style="font-size: 16px;"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <input id="savebtn" type="submit" name="setapp" value="Set An Appointment" class="btn btn-primary py-3 px-5">
+                    </div>
+                </form>
+            </div><br><br>
+        </div>
+    </div>
+    <%- include('components/footer') -%>

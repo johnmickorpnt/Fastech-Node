@@ -1,0 +1,157 @@
+<%- include('components/head', {title: "Fastech Login"}) -%>
+    <br><br><br><br><br><br>
+    <section class="ftco-section">
+        <div class="container">
+            <img src="images/user2.png" class="img-fluid" alt="" style="float:left;width:170px;height:170px;">
+            <div class="row justify-content-left mb-5 pb-5">
+                <div class="col-md-7 text-left heading-section ftco-animate">
+                    <span class="subheading1">Hi there!</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 nav-link-wrap mb-5 pb-md-5 pb-sm-1 ftco-animate">
+                    <div class="nav ftco-animate nav-pills justify-content-left text-center" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                        <a class="nav-link active" id="v-pills-nextgen-tab" data-toggle="pill" href="#v-pills-nextgen" role="tab" aria-controls="v-pills-nextgen" aria-selected="true" style="color: black">
+                                        Dashboard 
+                                        <img src="images/dashboard.png" style="width:30px;height:30px;">
+                                    </a>
+                        <a class="nav-link" id="v-pills-performance-tab" data-toggle="pill" href="#v-pills-performance" role="tab" aria-controls="v-pills-performance" aria-selected="false" style="color: black">
+                                        Edit Profile <img src="images/user1.png" style="width:30px;height:30px;">
+                                    </a>
+                        <a class="nav-link" id="v-pills-effect-tab" data-toggle="pill" href="#v-pills-effect" role="tab" aria-controls="v-pills-effect" aria-selected="false" style="color:black">
+                                        Privacy Policies 
+                                        <img src="images/login.png" style="width:30px;height:30px;">
+                                    </a>
+                    </div>
+                </div>
+                <div class="col-md-12 align-items-center ftco-animate">
+                    <br><br>
+                    <div class="tab-content ftco-animate" id="v-pills-tabContent">
+                        <div class="tab-pane fade show active" id="v-pills-nextgen" role="tabpanel" aria-labelledby="v-pills-nextgen-tab">
+                            <div class="d-md-flex">
+                                <div class="order-last align-self-center">
+                                    <img src="images/undraw_laravel_and_vue_59tp.svg" class="img-fluid" alt="" style="float:right; margin-right: -70%;width:400px;height:400px;">
+                                </div>
+                                <div class="order-first" style="margin-left: -20%;">
+                                    <form method="POST" id="dashboard-data" enctype="multipart/form-data">
+                                        <table>
+                                            <tr>
+                                                <th>Appointment</th>
+                                                <th>&nbsp &nbsp Status</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                            <% if (locals.data) { %>
+                                                <% for (var i = 0; i < locals.data.length; i++) { %>
+                                                    <tr>
+                                                        <td>
+                                                            <b>
+                                                                <%= locals.data[i].service %>
+                                                            </b>
+                                                            <br>
+                                                            Date: <%= locals.data[i].date %>
+                                                            <br>
+                                                            Time: <%= locals.data[i].time %>
+                                                        </td>
+                                                        <% if (locals.data[i].status == "completed") { %>
+                                                            <td><button type="button" class="btn btn-success" data-title="Your appointment is completed. Kindly answer the evaluation form.">Completed</button></td>
+                                                            <td><i class="fa fa-file-text-o" aria-hidden="true"></i> Evaluate the Technician</td>
+                                                        <%} else if (locals.data[i].status == "pending"){ %>
+                                                            <td><button type="button" class="btn btn-warning" data-title="Your appointment is still being reviewed. Kindly wait for our confirmation email.">For Approval</button></td>
+                                                            <td><i style="font-size:20px" class="fa">&#xf00d;</i> Cancel Appointment</td>
+                                                        <%} else if (locals.data[i].status == "servicing"){ %>
+                                                            <td><button type="button" class="btn btn-primary" data-title="Your appointment is now secured. Our technician will be contacting you on the day of the appointment">For Servicing</button></td>
+                                                            <td><i class="fa fa-eye" aria-hidden="true"></i> View Details</td>
+                                                        <%} else if (locals.data[i].status == "payment"){ %>
+                                                            <td><button type="button" class="btn btn-info" data-title="Your appointment has been approved. Kindly settle your payment now.">For Payment</button></td>
+                                                            <td><i class="fa fa-money" aria-hidden="true"></i> Proceed to Payment</td>
+                                                        <%} else { %>
+                                                            <td><button type="button" class="btn btn-warning" data-title="Your appointment is still being reviewed. Kindly wait for our confirmation email.">For Approval</button></td>
+                                                            <td><i style="font-size:20px" class="fa">&#xf00d;</i> Cancel Appointment</td>
+                                                        <% } %>
+                                                    </tr>
+                                                <% } %>
+                                            <% } %>
+                                        </table>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="v-pills-performance" role="tabpanel" aria-labelledby="v-pills-performance-tab">
+                            <div class="d-md-flex">
+                                <div class="one-forth align-self-center">
+                                    <img src="images/undraw_visual_data_b1wx.svg" class="img-fluid" alt="" style="margin-top: -50%;">
+                                </div>
+                                <div class="one-half order-first mr-md-5 align-self-center">
+                                    <form name="form1" method="post" enctype="multipart/form-data">
+                                        <div class="row1">
+                                            <div class="column1">
+                                                <div class="form-group">
+                                                    <input type="text" name="firstname" id="firstname" class="form-control" required>First Name*
+                                                </div>
+                                            </div>
+                                            <div class="column1">
+                                                <div class="form-group">
+                                                    <input type="text" name="lastname" id="lastname" class="form-control" required>Last Name*
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" name="email" id="email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Kindly follow the format (example@email.com)" required>Email Address*
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" name="phone" onkeypress="validate(event)" pattern=".{10,}" title="Valid phone number format: XXX-XXX-XXXX" id="phone" class="form-control" required>Phone Number*
+                                        </div>
+                                        <script>
+                                            function validate(evt) {
+                                                var theEvent = evt || window.event;
+                                                if (theEvent.type === 'paste') {
+                                                    key = event.clipboardData.getData('text/plain');
+                                                } else {
+                                                    var key = theEvent.keyCode || theEvent.which;
+                                                    key = String.fromCharCode(key);
+                                                }
+                                                var regex = /[0-9]|\./;
+                                                if (!regex.test(key)) {
+                                                    theEvent.returnValue = false;
+                                                    if (theEvent.preventDefault) theEvent.preventDefault();
+                                                }
+                                            }
+                                        </script>
+                                        <div class="form-group">
+                                            <input type="password" name="pass" id="pass" class="form-control" pattern=".{8,}" title="Your password must contain eight (8) or more characters." required>Password*
+                                        </div>
+                                    </form>
+                                    <br>
+                                    <p><a href="#" class="btn btn-primary py-3">Save Changes</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="v-pills-effect" role="tabpanel" aria-labelledby="v-pills-effect-tab">
+                            <div class="d-md-flex">
+                                <div class="align-self-center">
+                                    <img src="images/undraw_business_plan_5i9d.svg" class="img-fluid" alt="" style="margin-top: -120%;">
+                                </div>
+                                <div class="order-first align-self-center" style="margin-left: -20%;">
+                                    <h3 class="heading">Use of Site</h3>
+                                    <p>Commercial use or use on behalf of any third party is prohibited, except as explicitly permitted by FasTech, in advance. Any breach of these Terms of Trade shall result in the immediate revocation of the license or
+                                        access granted in this paragraph, without notice to you. Content provided on this site is solely for informational purposes which you posted, uploaded, published, and/or submitted or requested to be published.</p>
+                                    <br>
+                                    <p>Should you choose to register or subscribe for any such services or related features, you agree to provide accurate and current information about yourself, and to promptly update such information if there are any changes.
+                                        Every user of the Site is solely responsible for keeping passwords and other account identifiers safe and secure. Fastech shall not be responsible or liable, directly or indirectly, in any way for any loss or damage
+                                        of any kind incurred as a result of, or in connection with, your failure to comply with this section.</p>
+                                    <br>
+                                    <h3 class="heading">Amendments</h3>
+                                    <p>FasTech, reserves the right, without notice, to amend, revise, enhance, change, modify, alter or remove portions of these Terms of Trade at any time. Amendments shall take effect once posted on the Site. Regular update
+                                        of the Terms of Trade is your responsibility. The continued use of the Site following the posting of any amendments hereto constitutes your acceptance to those amendments and are thus, bound by its current amendments.
+                                        FasTech, further reserves the right to suspend, or permanently discontinue all or any part of this Site and to restrict or prohibit access to it.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br><br><br>
+    <%- include('components/footer') -%>

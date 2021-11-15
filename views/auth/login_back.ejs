@@ -1,0 +1,30 @@
+<%- include('components/head', {title: "Fastech Login"}) -%>
+    <div class="container h-100">
+        <div class="row d-flex align-items-center justify-content-center h-100">
+            <div class="col-6 border-1 w-50 h-50 p-4 form-card">
+                <form action="/auth/login-submit" id="loginForm" method="POST" class="d-flex flex-column h-100">
+                    <h5>Login to your Fastech Account</h5>
+                    <div class="form-group my-2">
+                        <label for="username">Username or Email</label>
+                        <input type="text" id="username" name="username" class="form-control" placeholder="Username...">
+                    </div>
+                    <div class="form-group my-2">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" class="form-control" placeholder="Password...">
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary form-control">Register</button>
+                        </div>
+                        <span class="text-center">
+                        <small>OR</small>
+                    </span>
+                        <div class="col-12 text-center">
+                            <a href="/auth/register">Don't Have an account? Register here</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <%- include('components/footer') -%>

@@ -1,0 +1,101 @@
+<%- include('components/head', {title: "Fastech Login"}) -%>
+    <!-- END nav -->
+    <div class="hero-wrap js-fullheight">
+        <div class="overlay"></div>
+        <div class="container-fluid px-0">
+            <div class="row d-md-flex no-gutters slider-text align-items-center js-fullheight justify-content-end">
+                <img class="one-half js-fullheight align-self-end order-md-last img-fluid" src="/images/team.png" alt="">
+                <div class="one-forth d-flex align-items-center ftco-animate js-fullheight">
+                    <div class="text mt-5">
+                        <span class="subheading">JOIN THE PARTY</span>
+                        <h1 class="mb-3" style="font-size: 30px;"><span>Log In to your FasTech Account</span></h1>
+                        <form name="form1" method="post" action="/auth/login-submit">
+                            <div class="form-group">
+                                <input type="email" name="email" id="email" class="form-control" placeholder="" required>Email
+                            </div>
+                            <div class="form-group">
+                                <input type="password" name="password" id="password" class="form-control" placeholder="" required>Password
+                            </div>
+                            <div class="form-group">
+                            </div>
+                            <div class="col-md-4 ftco-animate" style="margin-left: -5%;">
+                                <input type="submit" id="login" name="login" value="Log In" class="btn btn-primary py-3 px-4">
+                            </div>
+                        </form>
+                        <br>
+                        <p> Not a FasTech member yet? <a href="/auth/register">Click here</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="ftco-footer ftco-bg-dark ftco-section">
+        <div class="container">
+            <div class="row mb-5 pb-5 align-items-center d-flex">
+                <div class="col-md-6">
+                    <div class="heading-section heading-section-white ftco-animate">
+                        <span class="subheading">Let us help you</span>
+                        <h2 style="font-size: 30px;">We are ready to cater your technical concerns</h2>
+                    </div>
+                </div>
+                <div class="col-md-3 ftco-animate">
+                    <div class="price">
+                        <h3><img src="/images/work.png" width="150px" height="170px"></h3>
+                    </div>
+                </div>
+                <div class="col-md-3 ftco-animate">
+                    <p class="mb-0"><a href="/set-an-appointment" class="btn btn-primary py-3 px-4">Set An Appointment</a></p>
+                </div>
+            </div>
+            <br>
+            <hr style="color: white;">
+            <div class="row mb-5">
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4 bg-primary p-4">
+                        <h2 class="ftco-heading-2">FasTech</h2>
+                        <p>FasTech is an award-winning computer repair & service shop that offers cutting the edge digital solutions.
+                        </p>
+                        <ul class="ftco-footer-social list-unstyled mb-0">
+                            <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                            <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                            <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4 ml-md-5">
+                        <h2 class="ftco-heading-2">Our Services</h2>
+                        <ul class="list-unstyled">
+                            <li><a href="/services1" class="py-2 d-block">Troubleshooting & Networking Installation</a></li>
+                            <li><a href="/services2" class="py-2 d-block">Website and Portal Development</a></li>
+                            <li><a href="/services3" class="py-2 d-block">Hardware & Software Repair and Installation</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2"></h2>
+                        <ul class="list-unstyled">
+                            <br>
+                            <li><a href="/services4" class="py-2 d-block">Virus and Malware Removal</a></li>
+                            <li><a href="/services5" class="py-2 d-block">Data Recovery and Backup Services</a></li>
+                            <li><a href="/services6" class="py-2 d-block">Maintenance Services, Systems Setup and Configuration</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Office</h2>
+                        <div class="block-23 mb-3">
+                            <ul>
+                                <li><span class="icon icon-map-marker"></span><span class="text">Unit 12 One Corporate Center, SanAntonio, Pasig, Philippines</span></li>
+                                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+02 639 7848</span></a></li>
+                                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">inquiries@fastech.com</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            <%- include('components/footer') -%>
